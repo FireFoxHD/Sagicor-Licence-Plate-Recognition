@@ -3,7 +3,7 @@ const express = require('express');
 const axios = require('axios').default;
 const fs = require('fs');
 const path = require ('path');
-
+const mongoose = require ('mongoose');
 
 let app = express();
 
@@ -26,6 +26,11 @@ axios.post(url)
   .catch(function (error) {
     console.log(error);
   });
+
+  mongoose.connect('mongodb+srv://Sagicor:Password@license-plate-recogniti.umods.mongodb.net/Data', {
+  useUnifiedTopology : true,
+  useNewUrlParser : true,
+}).then(console.log('Connected to mongoDB'))
 
 
 
