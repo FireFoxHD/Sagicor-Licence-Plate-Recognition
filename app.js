@@ -5,6 +5,7 @@ const path = require ('path');
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' })
 require('dotenv').config()
+const mongoose = require ('mongoose');
 
 let app = express();
 
@@ -33,8 +34,19 @@ async function sendImageOpenalpr(url){
     console.log(response.data.results[0].plate);
   }catch(err){
     console.log(error);
+<<<<<<< HEAD
   }
 }
+=======
+  });
+
+  mongoose.connect('mongodb+srv://Sagicor:Password@license-plate-recogniti.umods.mongodb.net/Data', {
+  useUnifiedTopology : true,
+  useNewUrlParser : true,
+}).then(console.log('Connected to mongoDB'))
+
+
+>>>>>>> 4324956cbba601939bcfc1fde035f529c36aad6e
 
 sendImageOpenalpr(url)
 
